@@ -1,21 +1,19 @@
 package restaurant;
 
-
 import java.util.*;
 
-public class RSystem extends Implementation
-{
+public class RSystem extends Implementation {
 
 	public static final Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) throws Exception 
-	{
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		RSystem rest = new RSystem();
-		Implementation imp =new Implementation();
+		Implementation imp = new Implementation();
 
-		while (true)
-		{
+		boolean flag = true;
+
+		while (flag) {
 			System.out.println("Enter one choice from following...");
 			System.out.println("1. Search reastuarant by name");
 			System.out.println("2. Show details of reastuarant");
@@ -23,14 +21,15 @@ public class RSystem extends Implementation
 			System.out.println("4. Update details of an restuarant");
 			System.out.println("5. Delete reastuarant");
 			System.out.println("6. Activate or deactivate reastuarant");
-			// System.out.println("************************************************************************************************************************************************************");
+			System.out.println("7. Exit from system");
+			
 
 			int userInput = sc.nextInt();
 
 			switch (userInput) {
-		     
+
 			case 1:
-				
+
 				imp.searchRestuarant();
 				break;
 			case 2:
@@ -49,9 +48,17 @@ public class RSystem extends Implementation
 			case 6:
 				rest.activateDeactivate();
 				break;
+			case 7:
+				flag = false;
+				System.out.println("Bye...Thank You");
+				break;
+
+			default:
+				System.out.println("enter proper choise");
+				break;
 
 			}
 
 		}
-	}	
+	}
 }
