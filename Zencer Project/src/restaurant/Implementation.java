@@ -508,19 +508,20 @@ public class Implementation extends Restuarant
 			switch (ch) {
 
 			case 1:
-				ps = con.prepareStatement("select * from restaurant where status=1");
+				ps = con.prepareStatement("select * from restaurant where Status=1");
 				rs = ps.executeQuery();
 
 				System.out.println("-------Activate Restaurant Data------ ");
-				while (rs.next()) {
+				while (rs.next()) 
+				{
 
 					System.out.println("Name " + rs.getString("name") + "\t");
-					System.out.println("Opening_time " + rs.getFloat("opening_time") + "\t");
-					System.out.println("Closing_time " + rs.getFloat("closing_time") + "\t");
-					System.out.println("Phone_no" + rs.getString("phone_no") + "\t");
+					System.out.println("Opening_time " + rs.getString("opening_time") + "\t");
+					System.out.println("Closing_time " + rs.getString("closing_time") + "\t");
+					System.out.println("Phone_no" + rs.getLong("phone_no") + "\t");
 					System.out.println("Adress" + rs.getString("address") + "\t");
 					System.out.println("Cuisine" + rs.getString("cuisine") + "\t");
-					System.out.println("Status" + rs.getString("status") + "\t");
+					System.out.println("Status" + rs.getInt("status") + "\t");
 					System.out.println(
 							"                                                                                       ");
 
@@ -529,38 +530,45 @@ public class Implementation extends Restuarant
 					System.out.println(
 							"************************************************************************************************************************************************************************************************************************************");
 				}
+				break;
+				
 			case 2:
-				ps1 = con.prepareStatement("select * from restaurant where status=0");
+				ps1 = con.prepareStatement("select * from restaurant where Status = 0");
 				rs = ps1.executeQuery();
 
 				System.out.println("-------Deactivate Restaurant Data------ ");
 				while (rs.next()) {
 
 					System.out.println("Name " + rs.getString("name") + "\t");
-					System.out.println("Opening_time " + rs.getFloat("opening_time") + "\t");
-					System.out.println("Closing_time " + rs.getFloat("closing_time") + "\t");
-					System.out.println("Phone_no" + rs.getString("phone_no") + "\t");
+					System.out.println("Opening_time " + rs.getString("opening_time") + "\t");
+					System.out.println("Closing_time " + rs.getString("closing_time") + "\t");
+					System.out.println("Phone_no" + rs.getLong("phone_no") + "\t");
 					System.out.println("Adress" + rs.getString("address") + "\t");
 					System.out.println("Cuisine" + rs.getString("cuisine") + "\t");
-					System.out.println("Status" + rs.getString("status") + "\t");
-					System.out.println(
-							"                                                                                       ");
+					System.out.println("Status" + rs.getInt("status") + "\t");
+					System.out.println("\n");
 
-					System.out.println(
-							"************************************************************************************************************************************************************************************************************************************");
-					System.out.println(
-							"************************************************************************************************************************************************************************************************************************************");
+					System.out.println("************************************************************************************************************************************************************************************************************************************");
+					System.out.println("************************************************************************************************************************************************************************************************************************************");
 				}
-
+                  
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e) 
+		{
 			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
+		} 
+		finally
+		{
+			try 
+			{
+				if (rs == null) 
+				{
 					ps.close();
 				}
-			} catch (SQLException e) {
+			} 
+			catch (SQLException e) 
+			{
 				e.printStackTrace();
 			}
 		}
